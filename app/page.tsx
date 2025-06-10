@@ -40,6 +40,7 @@ export default function Home() {
         new web3.PublicKey(PublicKey);
         return true;
       } catch (error) {
+        console.log("Error is : ", error);
         toast.error("Incorrect receivers address!!", {
           autoClose: 5000,
           theme: "light",
