@@ -88,6 +88,19 @@ export default function Home() {
               Submit
             </button>
           </div>
+
+          {/* Receiver Address : */}
+          <div className="mt-12 space-y-2">
+            <h3 className="text-xl text-gray-300">Address of receiver</h3>
+
+            <input
+              id="account"
+              type="text"
+              placeholder="Public key of receiver"
+              className="text-[#2E8A9E] p-4 w-full bg-black outline-none resize-none rounded-lg placeholder:text-gray-500 placeholder:text-lg border-2 border-gray-500"
+              onChange={(event) => setAccount(event.target.value)}
+            />
+          </div>
         </form>
       </section>
     </main>
