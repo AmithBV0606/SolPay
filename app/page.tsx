@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import * as web3 from "@solana/web3.js";
 import { toast } from "react-toastify";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import ListItems from "@/components/ListItems";
 
 // tx = Trnasaction
 
@@ -73,8 +72,24 @@ export default function Home() {
   }, [connection, publicKey]);
 
   return (
-    <div>
-      <p>SolPay</p>
-    </div>
+    <main className="min-h-screen text-white mt-16 w-full">
+      <section className="grid grid-cols-1 sm:grid-cols-6 gap-4 p-4">
+        {/* Form : */}
+        <form className="rounded-lg min-h-content p-4 bg-[#1A1C23] col-span-1 sm:col-span-6 max-w-5xl lg:ml-[8%] xl:ml-[10%] 2xl:ml-[25%]">
+          {/* Main Heading + Submit button : */}
+          <div className="flex justify-between items-center">
+            <h2 className="font-bold text-3xl text-[#2E8A9E]">Send Sol</h2>
+
+            <button
+              className="disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-800 bg-[#512da8] rounded-lg w-24 py-1 font-semibold transition-all duration-200 hover:bg-[#46237A] cursor-pointer h-12"
+              onClick={handleTransaction}
+              disabled={!account || !amount}
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
   );
 }
