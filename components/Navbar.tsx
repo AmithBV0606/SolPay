@@ -3,11 +3,13 @@
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import Link from "next/link";
 import Image from "next/image";
+import BannerNote from "./BannerNote";
 
 const Navbar = () => {
   return (
-    <nav className="p-4 bg-[#1A1C23]">
-      <div className="flex justify-between items-center px-10">
+    <nav className="">
+      {/* Navbar */}
+      <div className="flex justify-between items-center px-1 sm:px-4 bg-[#1A1C23] h-16 sm:h-24">
         <Link href="/">
           <div className="relative">
             <Image
@@ -22,6 +24,9 @@ const Navbar = () => {
 
         <WalletMultiButton />
       </div>
+
+      {/* Banner Note : */}
+      <BannerNote />
     </nav>
   );
 };
