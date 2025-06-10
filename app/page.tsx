@@ -101,6 +101,20 @@ export default function Home() {
               onChange={(event) => setAccount(event.target.value)}
             />
           </div>
+
+          {/* Amount you want to send : */}
+          <div className="mt-6 space-y-2">
+            <h3 className="text-xl text-gray-300">Amount</h3>
+
+            <input
+              id="amount"
+              type="number"
+              min={0}
+              placeholder="Amount of SOL"
+              className="text-[#2E8A9E] p-4 w-full bg-black outline-none resize-none rounded-lg placeholder:text-gray-500 placeholder:text-lg border-2 border-gray-500"
+              onChange={(event) => setAmount(Number(event.target.value))}
+            />
+          </div>
         </form>
       </section>
     </main>
