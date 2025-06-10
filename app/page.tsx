@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import * as web3 from "@solana/web3.js";
 import { toast } from "react-toastify";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import ListItems from "@/components/ListItems";
 
 // tx = Trnasaction
 
@@ -71,6 +72,18 @@ export default function Home() {
     getInfo();
   }, [connection, publicKey]);
 
+  const outputs = [
+    {
+      title: "Account Balance...",
+      dependency: balance,
+    },
+    {
+      title: "Transaction Signature...",
+      dependency: txSig,
+      href: `https://explorer.solana.com/tx/${txSig}?cluster=devnet`,
+    },
+  ];
+
   return (
     <main className="min-h-screen text-white mt-16 w-full">
       <section className="grid grid-cols-1 sm:grid-cols-6 gap-4 p-4">
@@ -114,6 +127,21 @@ export default function Home() {
               className="text-[#2E8A9E] p-4 w-full bg-black outline-none resize-none rounded-lg placeholder:text-gray-500 placeholder:text-lg border-2 border-gray-500"
               onChange={(event) => setAmount(Number(event.target.value))}
             />
+          </div>
+
+          {/* Account status box : */}
+          <div className="text-lg font-semibold mt-12 bg-black border-2 border-gray-500 rounded-lg p-4">
+            <ul className="p-2">
+              {outputs.map(({ title, dependency, href }, index) => (
+                <ListItems
+                  key={title}
+                  title={title}
+                  dependency={dependency}
+                  href={href}
+                  index={index}
+                />
+              ))}
+            </ul>
           </div>
         </form>
       </section>
