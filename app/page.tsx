@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import * as web3 from "@solana/web3.js";
-import { toast } from "react-toastify";
+import { Bounce, toast } from "react-toastify";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import ListItems from "@/components/ListItems";
 
@@ -23,9 +23,37 @@ export default function Home() {
   const handleTransaction = async () => {
     // Error handling : check if wallet is connected
     if (!connection || !publicKey) {
-      toast.error("Please connect your wallet!!");
+      toast.error("Please connect your wallet!!", {
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "light",
+        transition: Bounce,
+      });
       return;
     }
+
+    function isValidPublicKey(PublicKey: string) {
+      try {
+        new web3.PublicKey(PublicKey);
+        return true;
+      } catch (error) {
+        toast.error("Incorrect receivers address!!", {
+          autoClose: 5000,
+          theme: "light",
+          transition: Bounce,
+        });
+        return false;
+      }
+    }
+
+    isValidPublicKey(account);
+
+    // ________________________________________________________________________________
+
+    // Transaction begins here :
 
     // Create a tx object
     const transaction = new web3.Transaction();
@@ -47,13 +75,25 @@ export default function Home() {
 
       const newBalance = balance - amount;
       setBalance(newBalance);
+
+      toast.success("Transaction Completed!", {
+        autoClose: 5000,
+        theme: "light",
+        transition: Bounce,
+      });
     } catch (error) {
       console.log("Error is : ", error);
-      toast.error("Transaction failed!!");
+      toast.error("Transaction failed!!", {
+        autoClose: 5000,
+        theme: "light",
+        transition: Bounce,
+      });
     } finally {
       // Resetting state variables :
-      setAccount("");
-      setAmount(0);
+      setTimeout(() => {
+        setAccount("");
+        setAmount(0);
+      }, 5000);
     }
   };
 
