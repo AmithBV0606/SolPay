@@ -6,20 +6,22 @@ import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <nav className="p-4 flex justify-between items-center bg-[#1A1C23]">
-      <Link href="/">
-        <div className="relative">
-          <Image
-            src="/solana_logo.png"
-            width={60}
-            height={60}
-            className="transition-transform duration-200 transform hover:scale-100 hover:cursor-pointer"
-            alt="Solana Logo"
-          />
-        </div>
-      </Link>
+    <nav className="p-4 bg-[#1A1C23]">
+      <div className="flex justify-between items-center px-10">
+        <Link href="/">
+          <div className="relative">
+            <Image
+              src="/solana_logo.png"
+              width={60}
+              height={60}
+              className="transition-transform duration-200 transform hover:scale-100 hover:cursor-pointer"
+              alt="Solana Logo"
+            />
+          </div>
+        </Link>
 
-      <WalletMultiButton className="transition-all duration-200 rounded-lg" />
+        <WalletMultiButton />
+      </div>
     </nav>
   );
 };
