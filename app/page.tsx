@@ -54,10 +54,6 @@ export default function Home() {
       // Resetting state variables :
       setAccount("");
       setAmount(0);
-      // @ts-ignore
-      document.getElementById("account").value = "";
-      // @ts-ignore
-      document.getElementById("amount").value = "";
     }
   };
 
@@ -109,6 +105,7 @@ export default function Home() {
             <input
               id="account"
               type="text"
+              value={account}
               placeholder="Public key of receiver"
               className="text-[#2E8A9E] p-4 w-full bg-black outline-none resize-none rounded-lg placeholder:text-gray-500 placeholder:text-lg border-2 border-gray-500"
               onChange={(event) => setAccount(event.target.value)}
@@ -123,6 +120,7 @@ export default function Home() {
               id="amount"
               type="number"
               min={0}
+              value={amount}
               placeholder="Amount of SOL"
               className="text-[#2E8A9E] p-4 w-full bg-black outline-none resize-none rounded-lg placeholder:text-gray-500 placeholder:text-lg border-2 border-gray-500"
               onChange={(event) => setAmount(Number(event.target.value))}
