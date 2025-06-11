@@ -54,6 +54,8 @@ Before running this project, make sure you have:
 
 ## 🚀 Getting Started
 
+## Normal Way (Git Clone):
+
 ### 1. Clone the Repository
 
 ```bash
@@ -90,6 +92,28 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## Through Docker :
+
+NOTE : Before setting up this project through docker, make sure you've already installed docker desktop.
+
+### 1. Pull the image from docker hub : 
+
+```bash
+docker pull amithrao/solpay
+```
+
+### 2. Run the image :
+
+```bash
+docker run -d --name <Anything> -p 3000:3000 amithrao/solpay
+```
+
+**NOTE :** If you want to make changes in the code locally and get reflected on the app running in the docker container, we need to use volumes :
+
+```bash
+docker run -p 3000:3000 -v "$(pwd):/app" -v /app/node_modules amithrao/solpay
+```
 
 ## 🎯 Usage
 
