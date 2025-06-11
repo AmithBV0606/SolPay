@@ -9,6 +9,20 @@
     </h1>
 </div>
 
+https://github.com/user-attachments/assets/9bbda716-1733-4551-af7c-d3f0157d0bee
+
+##
+
+### Transaction screenshots : 
+
+**Before :** 2.5 SOL
+![Before-Image](https://github.com/user-attachments/assets/5a83ead3-3afa-4985-8997-3a174c022dd3)
+
+**After :** 3 SOL
+![After-Image](https://github.com/user-attachments/assets/500c7252-6399-4d7e-83b9-0bbcd2efb653)
+
+##
+
 SolPay is a lightweight Solana-based payment application built with `Next.js` and `React`. It enables users to connect their Solana wallets and send transactions seamlessly through an intuitive UI. Designed with TailwindCSS and powered by the Solana Wallet Adapter and `@solana/web3.js`, SolPay offers a simple, secure, and fast way to handle on-chain payments. It also leverages React Toastify for real-time feedback and Headless UI for accessible components, delivering a smooth developer and user experience.
 
 ## 🌟 Features
